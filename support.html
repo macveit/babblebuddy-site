@@ -1,40 +1,347 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title>Support – BabbleBuddy</title>
-	<meta name="generator" content="LibreOffice 26.2.1.2 (MacOSX)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2026-05-04T13:27:18.068328000"/>
-	<meta name="description" content="Support für BabbleBuddy."/>
-	<meta name="" content=""/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<style type="text/css">
-		h1 { line-height: 105%; color: #111111 }
-		h1.western { font-size: 36pt }
-		h1.cjk { font-family: "apple-system", "BlinkMacSystemFont", "SF Pro Rounded", "SF Pro Display", "Arial", sans-serif; font-size: 36pt }
-		h1.ctl { font-family: "apple-system", "BlinkMacSystemFont", "SF Pro Rounded", "SF Pro Display", "Arial", sans-serif; font-size: 36pt }
-		p { line-height: 160%; font-family: "apple-system", "BlinkMacSystemFont", "SF Pro Rounded", "SF Pro Display", "Arial", sans-serif; color: #111111 }
-		h2 { line-height: 160%; color: #111111 }
-		a:link { color: #1683f3 }
-		a:visited { color: #1683f3 }
-	</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support – BabbleBuddy</title>
+  <meta name="description" content="Support für BabbleBuddy.">
+  <style>
+:root {
+  --bg: #f7f7f5;
+  --text: #111827;
+  --muted: #6b7280;
+  --blue: #1683f7;
+  --green: #24a148;
+  --purple: #7c5cff;
+  --card: rgba(255,255,255,0.88);
+  --border: rgba(17,24,39,0.08);
+  --shadow: 0 18px 50px rgba(17,24,39,0.10);
+  --radius: 30px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(22,131,247,0.12), transparent 34rem),
+    radial-gradient(circle at top right, rgba(36,161,72,0.10), transparent 34rem),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 850;
+  font-size: 1.15rem;
+}
+
+.brand img {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(17,24,39,0.10);
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.hero {
+  padding: 58px 0 60px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 54px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(17,24,39,0.06);
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 6.15rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  margin: 22px 0 20px;
+}
+
+.lead {
+  font-size: clamp(1.18rem, 2.2vw, 1.55rem);
+  color: var(--muted);
+  max-width: 760px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 800;
+}
+
+.button.primary {
+  color: white;
+  background: linear-gradient(135deg, var(--blue), #0c6ee8);
+  box-shadow: 0 10px 28px rgba(22,131,247,0.20);
+}
+
+.button.secondary {
+  color: var(--text);
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 28px rgba(17,24,39,0.08);
+}
+
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 38px;
+  box-shadow: var(--shadow);
+  padding: 26px;
+  backdrop-filter: blur(18px);
+  text-align: center;
+}
+
+.hero-card img {
+  max-width: 72%;
+  border-radius: 32px;
+  filter: drop-shadow(0 20px 36px rgba(17,24,39,0.12));
+}
+
+.section { padding: 76px 0; }
+
+.section h2 {
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px;
+}
+
+.section-intro {
+  color: var(--muted);
+  font-size: 1.18rem;
+  max-width: 780px;
+  margin: 0 0 34px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature-card, .trust-card, .plan, .legal-card, .father-note {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: 0 14px 38px rgba(17,24,39,0.07);
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 17px;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  background: #eef6ff;
+}
+
+.feature-card h3, .trust-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.feature-card p, .trust-card p, .legal-card p, .father-note p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.screenshot {
+  background: white;
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.screenshot img {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+}
+
+.screenshot.wide {
+  grid-column: span 3;
+  padding: 14px;
+}
+
+.trust {
+  background: linear-gradient(135deg, rgba(255,255,255,0.76), rgba(238,247,255,0.72));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.father-note {
+  margin-top: 18px;
+  box-shadow: var(--shadow);
+}
+
+.father-note strong {
+  display: block;
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.plan.free { background: linear-gradient(180deg, rgba(235,246,255,0.95), rgba(255,255,255,0.88)); }
+.plan.full { background: linear-gradient(180deg, rgba(239,252,239,0.95), rgba(255,255,255,0.88)); }
+
+.plan-label {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: white;
+  font-weight: 850;
+  margin-bottom: 18px;
+}
+
+.plan.free .plan-label { background: var(--blue); }
+.plan.full .plan-label { background: var(--green); }
+
+ul { padding: 0; list-style: none; margin: 0; }
+li { display: flex; gap: 10px; padding: 10px 0; }
+li::before { content: "✓"; color: var(--green); font-weight: 900; }
+
+.footer {
+  padding: 44px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.legal-page { padding: 52px 0; }
+
+.legal-card {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.legal-card h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  margin-top: 0;
+}
+
+.legal-card h2 { margin-top: 32px; }
+
+@media (max-width: 900px) {
+  .hero, .grid, .trust-grid, .compare, .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+  .screenshot.wide { grid-column: span 1; }
+  .nav {
+    align-items: flex-start;
+    gap: 16px;
+    flex-direction: column;
+  }
+  .nav-links { flex-wrap: wrap; }
+  .hero-card img { max-width: 86%; }
+  .footer-inner { flex-direction: column; }
+}
+</style>
 </head>
-<body lang="de-DE" text="#111111" link="#1683f3" vlink="#1683f3" bgcolor="#f7f7f5" dir="ltr"><p>
-<a href="index.html">← Zurück zu BabbleBuddy</a></p>
-<h1 class="western">BabbleBuddy Support</h1>
-<p>Bei Fragen, Problemen oder Rückmeldungen zu BabbleBuddy schreiben
-Sie bitte an:</p>
-<p><a href="mailto:info@babblebuddy.de">info@babblebuddy.de</a></p>
-<p>Bitte nennen Sie nach Möglichkeit Ihr Gerät, die iOS-Version und
-eine kurze Beschreibung des Problems.</p>
-<h2>Häufige Themen</h2>
-<p><strong>Eigene Aufnahmen:</strong> Aufnahmen werden lokal auf dem
-Gerät gespeichert und nur verwendet, wenn Sie diese Funktion aktiv
-nutzen.</p>
-<p><strong>Stimmen:</strong> Hochwertigere Stimmen können direkt in
-den iOS-Einstellungen von Apple heruntergeladen werden.</p>
-<p><strong>Datenschutz:</strong> BabbleBuddy verwendet kein Tracking,
-keine Analyse und kein Benutzerkonto.</p>
+<body>
+<div class="container"><nav class="nav">
+  <div class="brand"><img src="assets/app-icon.png" alt="BabbleBuddy App Icon"><span>BabbleBuddy</span></div>
+  <div class="nav-links">
+    <a href="index.html">Start</a>
+    <a href="privacy.html">Datenschutz</a>
+    <a href="support.html">Support</a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+</nav></div>
+
+<div class="container"><main class="legal-page"><article class="legal-card">
+<h1>Support</h1>
+<p>Bei Fragen, Problemen oder Rückmeldungen zu BabbleBuddy helfen wir gerne weiter.</p>
+<h2>Kontakt</h2>
+<p>E-Mail: <a href="mailto:info@babblebuddy.de">info@babblebuddy.de</a></p>
+<p>Wir bemühen uns, Anfragen innerhalb von 48 Stunden zu beantworten.</p>
+</article></main></div>
+
 </body>
 </html>
