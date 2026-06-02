@@ -308,6 +308,58 @@ li::before { content: "✓"; color: var(--green); font-weight: 900; }
 
 .legal-card h2 { margin-top: 32px; }
 
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(17,24,39,0.06);
+}
+
+.lang-button {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 999px;
+  padding: 5px 8px;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.lang-button.active {
+  background: white;
+  box-shadow: 0 5px 14px rgba(17,24,39,0.10);
+}
+
+.app-store-link {
+  color: white;
+  background: #111827;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.app-store-link:hover {
+  color: white;
+  text-decoration: none;
+  background: #000;
+}
+
+.nav-links a { white-space: nowrap; }
+
 @media (max-width: 900px) {
   .hero, .grid, .trust-grid, .compare, .screenshot-grid {
     grid-template-columns: 1fr;
@@ -325,23 +377,130 @@ li::before { content: "✓"; color: var(--green); font-weight: 900; }
 </style>
 </head>
 <body>
-<div class="container"><nav class="nav">
-  <div class="brand"><img src="assets/app-icon.png" alt="BabbbleBuddy App Icon"><span>BabbbleBuddy</span></div>
-  <div class="nav-links">
-    <a href="index.html">Start</a>
-    <a href="privacy.html">Datenschutz</a>
-    <a href="support.html">Support</a>
-    <a href="impressum.html">Impressum</a>
-  </div>
-</nav></div>
+<div class="container"><nav class="nav"><div class="brand"><img src="assets/app-icon.png" alt="BabbbleBuddy App Icon"><span>BabbbleBuddy</span></div><div class="nav-actions"><div class="nav-links"><a href="index.html" data-i18n="navHome">Start</a><a href="index.html#datenschutz" data-i18n="navPrivacy">Datenschutz</a><a href="support.html" data-i18n="navSupport">Support</a><a href="impressum.html" data-i18n="navImprint">Impressum</a><a class="app-store-link" href="https://apps.apple.com/de/app/babbblebuddy/id6766206154" target="_blank" rel="noopener" data-i18n="appStore">App Store</a></div><div class="language-switch" aria-label="Language selector"><button class="lang-button" type="button" data-lang="de" aria-label="Deutsch">🇩🇪</button><button class="lang-button" type="button" data-lang="en" aria-label="English">🇺🇸</button></div></div></nav></div>
+<div class="container"><main class="legal-page"><article class="legal-card"><h1 data-i18n="imprintTitle">Impressum</h1><p>Marcus Veit<br>Ob der Mühle 13 <br>72124 Pliezhausen<br>Deutschland</p><h2 data-i18n="contact">Kontakt</h2><p>E-Mail: <a href="mailto:support@babbblebuddy.com">support@babbblebuddy.com</a></p><p data-i18n="imprintResponsible">Verantwortlich für den Inhalt dieser Website: Marcus Veit.</p></article></main></div>
 
-<div class="container"><main class="legal-page"><article class="legal-card">
-<h1>Impressum</h1>
-<p>Marcus Veit<br>Ob der Mühle 13<br>72124 Pliezhausen<br>Deutschland</p>
-<h2>Kontakt</h2>
-<p>E-Mail: <a href="mailto:support@babbblebuddy.com">support@babbblebuddy.com</a></p>
-<p>Verantwortlich für den Inhalt dieser Website: Marcus Veit.</p>
-</article></main></div>
+<script>
+const translations = {
+  de: {
+    title: "BabbbleBuddy – Sprechendes Bilderbuch",
+    description: "BabbbleBuddy ist ein sprechendes Bilderbuch für Kinder – mit Wörtern, Zahlen, Bildern, Sprache, eigenen Aufnahmen, iPhone- und iPad-Unterstützung und starkem Datenschutz.",
+    navFeatures: "Funktionen", navScreenshots: "Screenshots", navPrivacy: "Datenschutz", navSupport: "Support", navImprint: "Impressum", navHome: "Start", appStore: "App Store",
+    badge: "Sprechendes Bilderbuch · Lernen mit Freude",
+    heroTitle: "Die Welt der Wörter, Zahlen und Sprachen entdecken mit Bildern und Stimme.",
+    heroLead: "BabbbleBuddy hilft Kindern, spielerisch neue Wörter und Zahlen zu lernen – mit ruhigen Bildern, mehreren Sprachen, Zahlen- und Fingerdecks, iPad-Unterstützung und eigenen Aufnahmen vertrauter Stimmen.",
+    viewApp: "App ansehen", readPrivacy: "Datenschutz lesen",
+    featuresTitle: "Einfach, ruhig und kindgerecht.",
+    featuresIntro: "BabbbleBuddy ist bewusst reduziert: große Bilder, klare Wörter und eine Bedienung, die Eltern gemeinsam mit ihrem Kind nutzen können.",
+    f1Title: "9 eingebaute Decks", f1Text: "Fast 300 fertige Karten für Tiere, Formen, Farben, Zahlen, Fingerlernen, Alltagsgegenstände und mehr.",
+    f2Title: "6 Sprachen", f2Text: "Benutzeroberfläche und fertige Karten sind in 6 Sprachen verfügbar.",
+    f3Title: "Zahlen lernen", f3Text: "Neue Zahlen-Decks helfen Kindern, Mengen und erste Zahlen spielerisch zu verstehen.",
+    f4Title: "Mit Fingern zählen", f4Text: "Fingerkarten verbinden Sprache, Zahlen und Körpergefühl besonders anschaulich.",
+    f5Title: "Eigene Aufnahmen", f5Text: "Kinder lernen besonders gern mit vertrauten Stimmen aus der Familie.",
+    f6Title: "Eigene Inhalte", f6Text: "Eltern können eigene Decks und Karten erstellen, zum Beispiel ein Familiendeck.",
+    f7Title: "Wunderschön auf dem iPad", f7Text: "Auf dem iPad wirkt BabbbleBuddy wie ein großes, ruhiges Bilderbuch: viel Platz für Bilder, klare Wörter und kleine Kinderhände.",
+    f8Title: "Offline nutzbar", f8Text: "Nach der Installation benötigt BabbbleBuddy keinen Internetzugang für das Lernen.",
+    f9Title: "Privat by Design", f9Text: "Keine Benutzerkonten, kein Tracking, keine Analyse und keine Datensammlung.",
+    shotsTitle: "So sieht BabbbleBuddy aus.",
+    shotsIntro: "Große Bilder, klare Begriffe, Zahlen- und Fingerdecks, eigene Aufnahmen und mehrere Sprachen – auf iPhone und iPad ohne Ablenkung.",
+    privacyTitle: "Alles bleibt auf deinem Gerät.",
+    privacyIntro: "Datenschutz ist bei BabbbleBuddy kein Zusatz, sondern ein Grundprinzip. Gerade bei einer App für Kinder ist Vertrauen wichtiger als jedes zusätzliche Feature.",
+    t1Title: "Keine Bilder ins Internet", t1Text: "Eigene Fotos, Lernkarten und Inhalte werden nicht hochgeladen und nicht an Dritte weitergegeben.",
+    t2Title: "Keine Audioaufnahmen an Dritte", t2Text: "Eigene Sprachaufnahmen bleiben lokal auf dem Gerät und werden nicht ausgewertet.",
+    t3Title: "Keine Nutzerprofile", t3Text: "BabbbleBuddy erstellt keine Profile und verwendet keine Analyse- oder Trackingdienste.",
+    t4Title: "Auch zukünftig nicht geplant", t4Text: "Eine Übertragung von Bildern, Aufnahmen, Lerninhalten oder Nutzungsprofilen ist auch in Zukunft nicht geplant.",
+    noteTitle: "Eine persönliche Entscheidung.",
+    noteText: "BabbbleBuddy wurde aus der Perspektive eines Vaters entwickelt. Deshalb ist mir besonders wichtig, dass Kinder mit der App lernen können, ohne dass private Bilder, Stimmen oder Lerninhalte ins Internet geladen oder an Dritte weitergegeben werden.",
+    priceTitle: "Kostenlos starten. Jederzeit erweitern.",
+    priceIntro: "Die kostenlose Version eignet sich zum Ausprobieren. Die Vollversion wird einmalig per In‑App‑Kauf freigeschaltet.",
+    free: "Kostenlos", full: "Vollversion",
+    free1: "9 eingebaute Decks", free2: "fast 300 fertige Karten", free3: "3 Karten pro Deck", free4: "1 eigenes Deck", free5: "6 Sprachen + eigene Aufnahmen",
+    full1: "9 eingebaute Decks", full2: "unbegrenzte Karten", full3: "beliebig viele eigene Decks", full4: "alle Inhalte ohne Begrenzung", full5: "einmalig freischalten, kein Abo",
+    footerName: "© BabbbleBuddy · Marcus Veit",
+    supportTitle: "Support", supportIntro: "Bei Fragen, Problemen oder Rückmeldungen zu BabbbleBuddy helfen wir gerne weiter.", contact: "Kontakt", supportTime: "Wir bemühen uns, Anfragen innerhalb von 48 Stunden zu beantworten.",
+    privacyPageTitle: "Datenschutzerklärung", privacyPageIntro: "BabbbleBuddy wurde so entwickelt, dass die App ohne Benutzerkonto, ohne Tracking und ohne Analysefunktionen verwendet werden kann.",
+    p1Title: "Keine Weitergabe an Dritte", p1Text: "BabbbleBuddy gibt keine Bilder, Audioaufnahmen, Lerninhalte, Nutzerprofile oder Nutzungsdaten an Dritte weiter. Eigene Inhalte werden nicht ins Internet hochgeladen und nicht auf externen Servern gespeichert.",
+    p2Title: "Lokale Speicherung", p2Text: "Von Nutzern erstellte Inhalte, Einstellungen und eigene Aufnahmen bleiben lokal auf dem Gerät. Sie bleiben dort, bis sie in der App gelöscht, ersetzt oder die App vom Gerät entfernt wird.",
+    p3Title: "Keine Analyse und kein Tracking", p3Text: "BabbbleBuddy verwendet keine Trackingdienste, keine Werbenetzwerke, keine Analysewerkzeuge und keine Drittanbieter-Tools zur Auswertung des Nutzungsverhaltens.",
+    p4Title: "Offline-Nutzung", p4Text: "Nach der Installation kann BabbbleBuddy vollständig offline verwendet werden. Für In‑App‑Käufe gelten die Bedingungen und Datenschutzinformationen von Apple.",
+    p5Title: "Auch zukünftig nicht geplant", p5Text: "Eine Übertragung von privaten Bildern, eigenen Sprachaufnahmen, Lerninhalten oder Nutzungsprofilen an externe Server oder Dritte ist auch zukünftig nicht geplant.",
+    pContact: "Bei Fragen zum Datenschutz:",
+    imprintTitle: "Impressum", imprintResponsible: "Verantwortlich für den Inhalt dieser Website: Marcus Veit."
+  },
+  en: {
+    title: "BabbbleBuddy – Talking Picture Book",
+    description: "BabbbleBuddy is a talking picture book for children – with words, numbers, pictures, speech, personal recordings, iPhone and iPad support, and strong privacy.",
+    navFeatures: "Features", navScreenshots: "Screenshots", navPrivacy: "Privacy", navSupport: "Support", navImprint: "Legal notice", navHome: "Home", appStore: "App Store",
+    badge: "Talking picture book · Joyful learning",
+    heroTitle: "Discover words, numbers and languages with pictures and voices.",
+    heroLead: "BabbbleBuddy helps children learn new words and numbers in a playful way – with calm pictures, multiple languages, number and finger-counting decks, iPad support and personal recordings of familiar voices.",
+    viewApp: "View the app", readPrivacy: "Read privacy information",
+    featuresTitle: "Simple, calm and child-friendly.",
+    featuresIntro: "BabbbleBuddy is intentionally reduced: large pictures, clear words and an interface parents can use together with their child.",
+    f1Title: "9 built-in decks", f1Text: "Almost 300 ready-made cards for animals, shapes, colors, numbers, finger counting, everyday objects and more.",
+    f2Title: "6 languages", f2Text: "The user interface and ready-made cards are available in 6 languages.",
+    f3Title: "Learn numbers", f3Text: "Number decks help children understand quantities and first numbers in a playful way.",
+    f4Title: "Count with fingers", f4Text: "Finger cards connect language, numbers and body awareness in a very visual way.",
+    f5Title: "Personal recordings", f5Text: "Children especially enjoy learning with familiar family voices.",
+    f6Title: "Personal content", f6Text: "Parents can create their own decks and cards, for example a family deck.",
+    f7Title: "Beautiful on iPad", f7Text: "On iPad, BabbbleBuddy feels like a large, calm picture book: lots of space for images, clear words and small children's hands.",
+    f8Title: "Works offline", f8Text: "After installation, BabbbleBuddy does not need internet access for learning.",
+    f9Title: "Private by design", f9Text: "No user accounts, no tracking, no analytics and no data collection.",
+    shotsTitle: "This is what BabbbleBuddy looks like.",
+    shotsIntro: "Large pictures, clear words, number and finger-counting decks, personal recordings and multiple languages – on iPhone and iPad without distractions.",
+    privacyTitle: "Everything stays on your device.",
+    privacyIntro: "Privacy is not an add-on in BabbbleBuddy; it is a core principle. Especially in an app for children, trust matters more than any extra feature.",
+    t1Title: "No pictures sent online", t1Text: "Personal photos, learning cards and content are not uploaded and are not shared with third parties.",
+    t2Title: "No audio recordings shared", t2Text: "Personal voice recordings stay local on the device and are not analyzed.",
+    t3Title: "No user profiles", t3Text: "BabbbleBuddy does not create profiles and does not use analytics or tracking services.",
+    t4Title: "No plans to change this", t4Text: "Uploading images, recordings, learning content or usage profiles is not planned for the future either.",
+    noteTitle: "A personal decision.",
+    noteText: "BabbbleBuddy was developed from a father's perspective. That is why it is especially important to me that children can learn with the app without private pictures, voices or learning content being uploaded to the internet or shared with third parties.",
+    priceTitle: "Start for free. Upgrade anytime.",
+    priceIntro: "The free version is great for trying the app. The full version is unlocked once through an in-app purchase.",
+    free: "Free", full: "Full version",
+    free1: "9 built-in decks", free2: "almost 300 ready-made cards", free3: "3 cards per deck", free4: "1 personal deck", free5: "6 languages + personal recordings",
+    full1: "9 built-in decks", full2: "unlimited cards", full3: "as many personal decks as you like", full4: "all content without limits", full5: "one-time unlock, no subscription",
+    footerName: "© BabbbleBuddy · Marcus Veit",
+    supportTitle: "Support", supportIntro: "If you have questions, problems or feedback about BabbbleBuddy, we are happy to help.", contact: "Contact", supportTime: "We try to answer requests within 48 hours.",
+    privacyPageTitle: "Privacy Policy", privacyPageIntro: "BabbbleBuddy was designed so the app can be used without a user account, without tracking and without analytics features.",
+    p1Title: "No sharing with third parties", p1Text: "BabbbleBuddy does not share images, audio recordings, learning content, user profiles or usage data with third parties. Personal content is not uploaded to the internet and is not stored on external servers.",
+    p2Title: "Local storage", p2Text: "User-created content, settings and personal recordings remain local on the device. They stay there until they are deleted or replaced in the app, or until the app is removed from the device.",
+    p3Title: "No analytics and no tracking", p3Text: "BabbbleBuddy does not use tracking services, advertising networks, analytics tools or third-party tools to evaluate usage behavior.",
+    p4Title: "Offline use", p4Text: "After installation, BabbbleBuddy can be used fully offline. For in-app purchases, Apple's terms and privacy information apply.",
+    p5Title: "No plans to change this", p5Text: "Transferring private images, personal voice recordings, learning content or usage profiles to external servers or third parties is not planned for the future either.",
+    pContact: "For privacy questions:",
+    imprintTitle: "Legal notice", imprintResponsible: "Responsible for the content of this website: Marcus Veit."
+  }
+};
+
+function setLanguage(lang) {
+  const selected = translations[lang] ? lang : 'de';
+  const t = translations[selected];
+  document.documentElement.lang = selected === 'en' ? 'en' : 'de';
+  document.title = t.title || document.title;
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta && t.description) meta.setAttribute('content', t.description);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+  document.querySelectorAll('.lang-button').forEach(button => {
+    button.classList.toggle('active', button.dataset.lang === selected);
+    button.setAttribute('aria-pressed', button.dataset.lang === selected ? 'true' : 'false');
+  });
+  localStorage.setItem('babbblebuddy-language', selected);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('babbblebuddy-language');
+  const browser = (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'de';
+  setLanguage(saved || browser);
+  document.querySelectorAll('.lang-button').forEach(button => {
+    button.addEventListener('click', () => setLanguage(button.dataset.lang));
+  });
+});
+</script>
 
 </body>
 </html>
