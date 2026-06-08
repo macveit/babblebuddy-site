@@ -1,9 +1,65 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de">
 <head>
-<title>Das Treppchen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Das Treppchen – Gewerbeobjekt im Rheingau zu vermieten</title>
+  <meta name="description" content="Das Treppchen in Walluf: historisches Fachwerkhaus im Rheingau, ab September 2026 zu vermieten. Ideal für Café, Weinbar, Vinothek, Restaurant, Feinkost, Blumenhandel, Atelier oder Büro.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Das Treppchen – ein historischer Ort im Rheingau sucht seine nächste Idee">
+  <meta property="og:description" content="Historisches Fachwerkhaus in Walluf, nur ca. 80 m vom Rhein entfernt. Ab September 2026 zu vermieten.">
+  <meta property="og:image" content="assets/hero.jpg">
+  <style>
+    :root{
+      --green:#2f4a3c; --green-dark:#24372b; --cream:#f7f3ea; --sand:#e9ddc8; --ink:#262626; --muted:#666; --line:rgba(47,74,60,.18); --white:#fff;
+      --serif: Georgia, 'Times New Roman', serif; --sans: Avenir, 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.55}
+    a{color:inherit} img{max-width:100%;display:block} .container{width:min(1120px,92vw);margin:auto}.narrow{width:min(850px,92vw);margin:auto}
+    .hero{min-height:92vh;position:relative;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(0,0,0,.48),rgba(0,0,0,.18) 45%,rgba(0,0,0,.52)),url('assets/hero.jpg') center/cover no-repeat;color:#fff}
+    .hero-inner{padding:48px 0 66px}.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.88)}h1{font-family:var(--serif);font-size:clamp(3rem,8vw,7.2rem);line-height:.92;margin:.18em 0 .22em;text-transform:uppercase;letter-spacing:.015em}.hero h2{font-size:clamp(1.35rem,3vw,2.5rem);font-weight:400;line-height:1.18;max-width:720px;margin:0 0 1.2rem}.hero p{font-size:clamp(1.05rem,1.8vw,1.28rem);max-width:760px;color:rgba(255,255,255,.92)}
+    .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid rgba(255,255,255,.45);transition:.2s ease}.btn.primary{background:#fff;color:var(--green-dark);border-color:#fff}.btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.16)}
+    nav{position:sticky;top:0;background:rgba(247,243,234,.92);backdrop-filter:blur(12px);z-index:20;border-bottom:1px solid var(--line)}nav .container{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}.brand{font-family:var(--serif);font-weight:700;letter-spacing:.05em;color:var(--green-dark)}.navlinks{display:flex;gap:18px;font-size:.92rem}.navlinks a{text-decoration:none;color:#3d453f}.navlinks a:hover{color:var(--green-dark)}
+    section{padding:82px 0}.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;margin:0 0 22px;color:var(--green-dark)}.lead{font-size:clamp(1.16rem,2vw,1.42rem);color:#444}.quote{font-family:var(--serif);font-size:clamp(1.7rem,3vw,3rem);line-height:1.12;color:var(--green-dark);margin:0}.split{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 18px 40px rgba(47,74,60,.08)}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}.fact{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.fact b{display:block;color:var(--green-dark);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}.fact span{font-size:1.08rem}
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.gallery a{display:block;min-height:260px;border-radius:22px;overflow:hidden;background:#ddd;position:relative}.gallery img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .35s}.gallery a:hover img{transform:scale(1.035)}.gallery .wide{grid-column:span 8}.gallery .small{grid-column:span 4}.gallery .half{grid-column:span 6}
+    .uses{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.use{border:1px solid var(--line);background:rgba(255,255,255,.76);padding:18px;border-radius:18px;font-weight:700;color:var(--green-dark)}
+    .floor{background:#fff}.floor-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}.floor img{border-radius:22px;border:1px solid var(--line);background:#fff}.list{padding-left:1.2em}.list li{margin:.36em 0}.muted{color:var(--muted)}
+    .contact{background:linear-gradient(135deg,var(--green-dark),#415e4f);color:#fff}.contact .card{color:var(--ink)}.email{font-size:clamp(1.3rem,3vw,2.2rem);font-weight:800;color:var(--green-dark);text-decoration:none;word-break:break-word}.qr{width:150px;border:10px solid #fff;border-radius:14px;margin-top:18px}.footer{padding:30px 0;background:#19241d;color:rgba(255,255,255,.72);font-size:.9rem}.footer a{color:#fff}
+    .notice{font-size:.95rem;border-left:4px solid var(--green);padding-left:14px;color:#555}.download{display:inline-block;margin-top:14px;color:var(--green-dark);font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
+    @media(max-width:850px){.split,.floor-grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.uses{grid-template-columns:1fr 1fr}.gallery .wide,.gallery .small,.gallery .half{grid-column:span 12}.navlinks{display:none}.hero{min-height:86vh}.hero-inner{padding-bottom:44px}section{padding:58px 0}}
+    @media(max-width:520px){.facts,.uses{grid-template-columns:1fr}h1{font-size:3.2rem}.card{padding:22px}.gallery a{min-height:220px}}
+  </style>
 </head>
 <body>
-Das Treppchen
+  <nav><div class="container"><div class="brand">DAS TREPPCHEN</div><div class="navlinks"><a href="#geschichte">Geschichte</a><a href="#objekt">Objekt</a><a href="#galerie">Galerie</a><a href="#kontakt">Kontakt</a></div></div></nav>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow">Walluf · Rheingau · ab September 2026</div>
+      <h1>Das Treppchen</h1>
+      <h2>Ein historischer Ort im Rheingau sucht seine nächste Idee.</h2>
+      <p>Nur wenige Schritte vom Rhein entfernt wartet ein bekanntes Wallufer Haus auf ein neues Kapitel – ideal für Café, Weinbar, Vinothek, Restaurant, Feinkost, Blumenhandel, Atelier, Büro oder ein individuelles Konzept.</p>
+      <div class="cta-row"><a class="btn primary" href="#kontakt">Kontakt aufnehmen</a><a class="btn" href="#objekt">Exposé ansehen</a></div>
+    </div>
+  </header>
+  <main>
+    <section id="geschichte"><div class="narrow"><p class="quote">Manche Immobilien bieten Räume. Das Treppchen bietet Möglichkeiten.</p><p class="lead">Seit rund 50 Jahren ist „Das Treppchen“ unter diesem Namen im Rheingau bekannt. Das historische Fachwerkhaus in Walluf stammt ursprünglich aus dem 18. Jahrhundert und verbindet Altstadtflair, Rheingau-Atmosphäre und die Nähe zum Rhein auf eine Weise, die sich nicht neu bauen lässt.</p><p>Die begrünte Fassade, die Treppe zum Eingang und die Lage im alten Ortskern machen das Objekt zu einem Ort mit eigener Ausstrahlung. Hier entsteht kein neues Konzept auf der grünen Wiese. Hier wird Geschichte weitergeschrieben.</p></div></section>
+    <section id="objekt" style="background:#fff"><div class="container"><div class="split"><div><h2 class="section-title">Das Objekt</h2><p class="lead">Im Erdgeschoss stehen ein Gastraum, eine vorhandene Küche sowie WC-Anlagen zur Verfügung. Im Untergeschoss befinden sich Nebenflächen</p><p>Die Küchenausstattung wird mitvermietet. Das Objekt ist brauereifrei. Außengastronomie ist grundsätzlich möglich und muss mit dem Bürgermeisteramt abgestimmt werden.</p><p class="notice">Die Garage darf wegen der gastronomischen Nutzung nicht als Garage verwendet werden; sie eignet sich als Lager- oder Nebenfläche.</p></div><div class="card"><h3>Auf einen Blick</h3><div class="facts" style="grid-template-columns:1fr 1fr"><div class="fact"><b>Adresse</b><span>Kirchgasse 14<br>65396 Walluf</span></div><div class="fact"><b>Verfügbar</b><span>ab September 2026</span></div><div class="fact"><b>Miete</b><span>1.200 € / Monat</span></div><div class="fact"><b>Nebenkosten</b><span>200 € / Monat</span></div><div class="fact"><b>Lage</b><span>ca. 80 m zum Rhein</span></div><div class="fact"><b>Parken</b><span>Parkplatz ca. 50 m entfernt</span></div></div></div></div></div></section>
+    <section><div class="container"><h2 class="section-title">Ideal für neue Ideen</h2><p class="lead">Das Treppchen eignet sich für Konzepte mit Charakter – klassisch gastronomisch oder als besondere Gewerbefläche.</p><div class="uses"><div class="use">Café</div><div class="use">Weinbar</div><div class="use">Vinothek</div><div class="use">Restaurant / Bistro</div><div class="use">Feinkost</div><div class="use">Blumenladen</div><div class="use">Atelier / Galerie</div><div class="use">Büro / Showroom</div></div></div></section>
+    <section id="galerie" style="background:#fff"><div class="container"><h2 class="section-title">Eindrücke</h2><div class="gallery">
+      <a class="wide" href="assets/facade_alt.jpg"><img src="assets/facade_alt.jpg" alt="Begrünte Fassade von Das Treppchen in Walluf"></a>
+      <a class="small" href="assets/courtyard.jpg"><img src="assets/courtyard.jpg" alt="Innenhof und Begrünung"></a>
+      <a class="half" href="assets/interior-03.jpg"><img src="assets/interior-03.jpg" alt="Gastraum Innenansicht"></a>
+      <a class="half" href="assets/interior-05.jpg"><img src="assets/interior-05.jpg" alt="Küche Innenansicht"></a>
+      <a class="small" href="assets/interior-02.jpg"><img src="assets/interior-02.jpg" alt="Gastraum mit Holzvertäfelung"></a>
+      <a class="small" href="assets/rose.jpg"><img src="assets/rose.jpg" alt="Rosen an der Fassade"></a>
+      <a class="small" href="assets/side.jpg"><img src="assets/side.jpg" alt="Seitenansicht des Hauses"></a>
+    </div></div></section>
+    <section class="floor"><div class="container floor-grid"><div><h2 class="section-title">Grundriss & Flächen</h2><p>Die Grundrisse zeigen die Aufteilung von Erdgeschoss und Kellergeschoss. Die vorhandenen Flächen ermöglichen unterschiedliche Nutzungskonzepte – von Gastronomie über Wein-/Feinkost bis zu kreativen Gewerbeideen.</p><ul class="list"><li>Gastraum im Erdgeschoss</li><li>Küche mit mitvermieteter Ausstattung</li><li>Damen- und Herren-WC</li><li>Lager- und Nebenflächen</li></ul></div><div><img src="assets/floorplan.jpg" alt="Grundriss Erdgeschoss und Kellergeschoss Das Treppchen"></div></div></section>
+    <section><div class="container"><div class="split"><div><h2 class="section-title">Lage am Rhein</h2><p class="lead">Walluf gilt als Tor zum Rheingau. Das Treppchen liegt im historischen Ortskern, nur ca. 80 Meter vom Rheinufer entfernt und mit etwas Blick auf das Wasser.</p><p>Die Umgebung verbindet Weinbau, Tourismus, Naherholung und regionale Gastronomie. Ein öffentlicher Parkplatz befindet sich ca. 50 Meter entfernt.</p></div><img style="border-radius:26px" src="assets/street.jpg" alt="Straßenansicht und Lage im historischen Ortskern"></div></div></section>
+    <section style="background:#fff"><div class="container"><h2 class="section-title">Energie & Gebäudedaten</h2><div class="facts"><div class="fact"><b>Baujahr</b><span>1730</span></div><div class="fact"><b>Sanierung</b><span>2007</span></div><div class="fact"><b>Energieträger</b><span>Erdgas</span></div><div class="fact"><b>Endenergieverbrauch</b><span>162,5 kWh/(m²·a)</span></div></div><p class="muted">Energieausweis gültig bis 31.03.2035.</p><a class="download" href="assets/energieausweis.pdf">Energieausweis als PDF öffnen</a></div></section>
+    <section id="kontakt" class="contact"><div class="container split"><div><h2 class="section-title" style="color:#fff">Vielleicht ist Ihre Idee genau das, worauf dieser Ort gewartet hat.</h2><p class="lead" style="color:rgba(255,255,255,.86)">Bitte senden Sie Ihre Anfrage ausschließlich per E-Mail. Besichtigungen erfolgen nach Vereinbarung.</p></div><div class="card"><h3>Kontakt</h3><p>Ansprechpartner:<br><strong>Marcus Veit</strong></p><p><a class="email" href="mailto:macv@gmx.net?subject=Anfrage%20Das%20Treppchen%20Walluf">macv@gmx.net</a></p><img class="qr" src="assets/qr-code.png" alt="QR-Code zur Website Das Treppchen"><p class="muted">QR-Code für Aushang und Exposé.</p></div></div></section>
+  </main>
+  <footer class="footer"><div class="container">© Das Treppchen · Kirchgasse 14 · 65396 Walluf · Kontakt: <a href="mailto:macv@gmx.net">macv@gmx.net</a></div></footer>
 </body>
 </html>
