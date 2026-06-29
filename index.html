@@ -3,566 +3,295 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BabbbleBuddy – Sprechendes Bilderbuch</title>
-  <meta name="description" content="BabbbleBuddy ist ein sprechendes Bilderbuch für Kinder – mit Wörtern, Zahlen, Bildern, Sprache, eigenen Aufnahmen, iPhone- und iPad-Unterstützung und starkem Datenschutz.">
+  <title>BabbbleBuddy – Gemeinsam entdecken</title>
+  <meta name="description" content="BabbbleBuddy macht gemeinsame Zeit zu wertvoller Lernzeit – sicher, privat und komplett offline.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BabbbleBuddy – Gemeinsam entdecken">
+  <meta property="og:description" content="Gemeinsame Lernzeit mit vertrauten Stimmen, spielerischem Entdecken und viel Privatsphäre.">
+  <meta property="og:image" content="assets/v23/hero-de.jpg">
+  <meta name="theme-color" content="#f7fbff">
   <style>
-:root {
-  --bg: #f7f7f5;
-  --text: #111827;
-  --muted: #6b7280;
-  --blue: #1683f7;
-  --green: #24a148;
-  --purple: #7c5cff;
-  --card: rgba(255,255,255,0.88);
-  --border: rgba(17,24,39,0.08);
-  --shadow: 0 18px 50px rgba(17,24,39,0.10);
-  --radius: 30px;
-}
+    :root {
+      --ink: #101114;
+      --muted: #69717b;
+      --line: rgba(16, 17, 20, .10);
+      --sky: #eef8ff;
+      --peach: #fff5ec;
+      --mint: #effaf1;
+      --lilac: #f5f1ff;
+      --blue: #0a7cff;
+      --surface: #fff;
+      --radius: 28px;
+      --shadow: 0 20px 54px rgba(20, 39, 57, .10);
+    }
 
-* { box-sizing: border-box; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: #fff; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(22,131,247,0.12), transparent 34rem),
-    radial-gradient(circle at top right, rgba(36,161,72,0.10), transparent 34rem),
-    var(--bg);
-  color: var(--text);
-  line-height: 1.55;
-}
+    .site-header { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.84); border-bottom: 1px solid rgba(16,17,20,.06); backdrop-filter: blur(16px); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; gap: 10px; align-items: center; font-size: 1.06rem; font-weight: 800; letter-spacing: -.02em; }
+    .brand img { width: 38px; height: 38px; border-radius: 11px; box-shadow: 0 6px 18px rgba(20,39,57,.15); }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .language-switch { display: inline-flex; gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; }
+    .language-switch button { border: 0; background: transparent; border-radius: 999px; padding: 6px 9px; color: var(--muted); font: inherit; font-size: .76rem; font-weight: 800; cursor: pointer; }
+    .language-switch button.active { color: var(--ink); background: #f2f4f7; }
+    .store-link, .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; font-weight: 750; transition: transform .2s ease, background .2s ease; }
+    .store-link { background: var(--ink); color: #fff; padding: 10px 15px; font-size: .88rem; }
+    .store-link:hover, .button:hover { transform: translateY(-1px); }
 
-a { color: var(--blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
+    .hero { overflow: hidden; background: linear-gradient(135deg, var(--sky), #fff 58%); }
+    .hero-inner { min-height: 690px; display: grid; grid-template-columns: 1fr .92fr; align-items: center; gap: 52px; padding: 72px 0; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 650px; margin-bottom: 24px; font-size: clamp(3.15rem, 6vw, 5.8rem); line-height: .98; letter-spacing: -.06em; }
+    .lead { max-width: 540px; margin-bottom: 28px; color: var(--muted); font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+    .button { min-height: 52px; padding: 0 21px; background: var(--blue); color: #fff; box-shadow: 0 12px 25px rgba(10,124,255,.22); }
+    .hero-image { display: grid; place-items: center; min-height: 560px; }
+    .hero-image img { width: min(100%, 460px); height: auto; border-radius: 34px; box-shadow: var(--shadow); }
 
-.container {
-  width: min(1120px, calc(100% - 40px));
-  margin: 0 auto;
-}
+    .section { padding: 112px 0; }
+    .section.tint-peach { background: var(--peach); }
+    .section.tint-mint { background: var(--mint); }
+    .section.tint-lilac { background: var(--lilac); }
+    .section-heading { max-width: 680px; margin-bottom: 52px; }
+    h2 { margin-bottom: 16px; font-size: clamp(2.5rem, 4.5vw, 4.45rem); line-height: 1.02; letter-spacing: -.055em; }
+    .section-intro { max-width: 650px; color: var(--muted); font-size: 1.15rem; }
+    .story { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(36px, 7vw, 88px); align-items: center; }
+    .story.reverse { grid-template-columns: 1.1fr .9fr; }
+    .story.reverse .copy { order: 2; }
+    .story.reverse .media { order: 1; }
+    .copy h3 { margin-bottom: 16px; font-size: clamp(2rem, 3.5vw, 3.45rem); line-height: 1.03; letter-spacing: -.045em; }
+    .copy p { color: var(--muted); font-size: 1.08rem; }
+    .media img { display: block; width: 100%; max-width: 530px; height: auto; margin: 0 auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .media.wide img { max-width: 610px; }
+    .facts { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; margin: 24px 0 0; list-style: none; font-weight: 700; }
+    .facts li::before { content: "•"; padding-right: 9px; color: var(--blue); }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 0;
-}
+    .language-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .language-list span { padding: 9px 13px; border-radius: 999px; background: rgba(255,255,255,.76); border: 1px solid var(--line); font-weight: 700; }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 850;
-  font-size: 1.15rem;
-}
+    .privacy-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 32px; }
+    .privacy-grid div { padding: 20px; border-radius: 20px; background: rgba(255,255,255,.76); border: 1px solid var(--line); font-weight: 720; }
+    .privacy-grid div::before { content: "✓"; display: block; margin-bottom: 7px; color: #179947; font-size: 1.15rem; }
 
-.brand img {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(17,24,39,0.10);
-}
+    .free-section { text-align: center; background: linear-gradient(160deg, #f4f9ff, #fff 56%, #f4fff5); }
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 38px auto 34px; max-width: 810px; text-align: left; }
+    .plan { padding: 30px; background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 12px 34px rgba(20,39,57,.07); }
+    .plan h3 { margin-bottom: 15px; font-size: 1.35rem; }
+    .plan ul { padding: 0; margin: 0; list-style: none; color: var(--muted); }
+    .plan li { padding: 8px 0; }
+    .plan li::before { content: "✓"; padding-right: 8px; color: #179947; font-weight: 900; }
 
-.nav-links {
-  display: flex;
-  gap: 18px;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
+    .footer { padding: 34px 0 44px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
+    .footer a:hover { color: var(--ink); }
 
-.hero {
-  padding: 58px 0 60px;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 54px;
-  align-items: center;
-}
+    @media (max-width: 860px) {
+      .container { width: min(100% - 32px, 620px); }
+      .nav { min-height: 68px; }
+      .nav-links { display: none; }
+      .hero-inner, .story, .story.reverse { grid-template-columns: 1fr; min-height: 0; gap: 38px; padding: 58px 0; }
+      .hero-image { min-height: 0; }
+      .hero-image img { max-width: 390px; }
+      .story.reverse .copy, .story.reverse .media { order: initial; }
+      .section { padding: 76px 0; }
+      .section-heading { margin-bottom: 36px; }
+      .privacy-grid { grid-template-columns: 1fr 1fr; }
+      .plans { grid-template-columns: 1fr; }
+      .footer-inner { display: block; }
+      .footer-links { margin-top: 12px; }
+    }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 8px 14px;
-  border-radius: 999px;
-  color: var(--muted);
-  font-weight: 700;
-  box-shadow: 0 8px 30px rgba(17,24,39,0.06);
-}
-
-h1 {
-  font-size: clamp(2.75rem, 6.2vw, 5.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  margin: 22px 0 20px;
-}
-
-.lead {
-  font-size: clamp(1.18rem, 2.2vw, 1.55rem);
-  color: var(--muted);
-  max-width: 760px;
-  margin: 0;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 14px 22px;
-  font-weight: 800;
-}
-
-.button.primary {
-  color: white;
-  background: linear-gradient(135deg, var(--blue), #0c6ee8);
-  box-shadow: 0 10px 28px rgba(22,131,247,0.20);
-}
-
-.button.secondary {
-  color: var(--text);
-  background: white;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 28px rgba(17,24,39,0.08);
-}
-
-.hero-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 38px;
-  box-shadow: var(--shadow);
-  padding: 26px;
-  backdrop-filter: blur(18px);
-  text-align: center;
-}
-
-.hero-card img {
-  max-width: 72%;
-  border-radius: 32px;
-  filter: drop-shadow(0 20px 36px rgba(17,24,39,0.12));
-}
-
-.section { padding: 76px 0; }
-
-.section h2 {
-  font-size: clamp(2.1rem, 4vw, 3.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin: 0 0 16px;
-}
-
-.section-intro {
-  color: var(--muted);
-  font-size: 1.18rem;
-  max-width: 780px;
-  margin: 0 0 34px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.feature-card, .trust-card, .plan, .legal-card, .father-note {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 26px;
-  box-shadow: 0 14px 38px rgba(17,24,39,0.07);
-}
-
-.icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 17px;
-  display: grid;
-  place-items: center;
-  font-size: 1.6rem;
-  margin-bottom: 18px;
-  background: #eef6ff;
-}
-
-.feature-card h3, .trust-card h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-}
-
-.feature-card p, .trust-card p, .legal-card p, .father-note p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.screenshot-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  align-items: start;
-}
-
-.screenshot {
-  background: white;
-  border-radius: 30px;
-  padding: 10px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-.screenshot img {
-  width: 100%;
-  display: block;
-  border-radius: 24px;
-}
-
-.screenshot.wide {
-  grid-column: span 3;
-  padding: 14px;
-}
-
-.trust {
-  background: linear-gradient(135deg, rgba(255,255,255,0.76), rgba(238,247,255,0.72));
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.trust-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-.father-note {
-  margin-top: 18px;
-  box-shadow: var(--shadow);
-}
-
-.father-note strong {
-  display: block;
-  font-size: 1.35rem;
-  margin-bottom: 8px;
-}
-
-.compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.plan.free { background: linear-gradient(180deg, rgba(235,246,255,0.95), rgba(255,255,255,0.88)); }
-.plan.full { background: linear-gradient(180deg, rgba(239,252,239,0.95), rgba(255,255,255,0.88)); }
-
-.plan-label {
-  display: inline-flex;
-  border-radius: 999px;
-  padding: 8px 14px;
-  color: white;
-  font-weight: 850;
-  margin-bottom: 18px;
-}
-
-.plan.free .plan-label { background: var(--blue); }
-.plan.full .plan-label { background: var(--green); }
-
-ul { padding: 0; list-style: none; margin: 0; }
-li { display: flex; gap: 10px; padding: 10px 0; }
-li::before { content: "✓"; color: var(--green); font-weight: 900; }
-
-.footer {
-  padding: 44px 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  border-top: 1px solid var(--border);
-  padding-top: 24px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.legal-page { padding: 52px 0; }
-
-.legal-card {
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.legal-card h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  margin-top: 0;
-}
-
-.legal-card h2 { margin-top: 32px; }
-
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.language-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.72);
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 24px rgba(17,24,39,0.06);
-}
-
-.lang-button {
-  appearance: none;
-  border: 0;
-  cursor: pointer;
-  background: transparent;
-  border-radius: 999px;
-  padding: 5px 8px;
-  font-size: 1.15rem;
-  line-height: 1;
-}
-
-.lang-button.active {
-  background: white;
-  box-shadow: 0 5px 14px rgba(17,24,39,0.10);
-}
-
-.app-store-link {
-  color: white;
-  background: #111827;
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-weight: 850;
-  white-space: nowrap;
-}
-
-.app-store-link:hover {
-  color: white;
-  text-decoration: none;
-  background: #000;
-}
-
-.nav-links a { white-space: nowrap; }
-
-@media (max-width: 900px) {
-  .hero, .grid, .trust-grid, .compare, .screenshot-grid {
-    grid-template-columns: 1fr;
-  }
-  .screenshot.wide { grid-column: span 1; }
-  .nav {
-    align-items: flex-start;
-    gap: 16px;
-    flex-direction: column;
-  }
-  .nav-links { flex-wrap: wrap; }
-  .hero-card img { max-width: 86%; }
-  .footer-inner { flex-direction: column; }
-}
-</style>
+    @media (max-width: 460px) {
+      h1 { font-size: 3rem; }
+      .store-link { display: none; }
+      .privacy-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-  <nav class="nav">
-  <div class="brand"><img src="assets/app-icon.png" alt="BabbbleBuddy App Icon"><span>BabbbleBuddy</span></div>
-  <div class="nav-actions">
-    <div class="nav-links">
-      <a href="#funktionen" data-i18n="navFeatures">Funktionen</a>
-      <a href="#screenshots" data-i18n="navScreenshots">Screenshots</a>
-      <a href="#datenschutz" data-i18n="navPrivacy">Datenschutz</a>
-      <a href="support.html" data-i18n="navSupport">Support</a>
-      <a href="impressum.html" data-i18n="navImprint">Impressum</a>
-      <a class="app-store-link" href="https://apps.apple.com/de/app/babbblebuddy/id6766206154" target="_blank" rel="noopener" data-i18n="appStore">App Store</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="BabbbleBuddy"><img src="assets/v23/icon.png" alt=""><span>BabbbleBuddy</span></a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#stimmen" data-i18n="navVoices">Stimmen</a>
+        <a href="#lernwelten" data-i18n="navWorlds">Lernwelten</a>
+        <a href="#sicherheit" data-i18n="navSafety">Sicherheit</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="language-switch" aria-label="Sprache wählen">
+          <button class="lang-button" type="button" data-lang="de" aria-label="Deutsch">DE</button>
+          <button class="lang-button" type="button" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <a class="store-link" href="https://apps.apple.com/de/app/babbblebuddy/id6766206154" target="_blank" rel="noopener" data-i18n="navStore">Im App Store</a>
+      </div>
     </div>
-    <div class="language-switch" aria-label="Language selector">
-      <button class="lang-button" type="button" data-lang="de" aria-label="Deutsch">🇩🇪</button>
-      <button class="lang-button" type="button" data-lang="en" aria-label="English">🇺🇸</button>
-    </div>
-  </div>
-</nav>
+  </header>
 
-  <main class="hero">
-    <section>
-      <div class="badge" data-i18n="badge">Sprechendes Bilderbuch · Lernen mit Freude</div>
-      <h1 data-i18n="heroTitle">Die Welt der Wörter, Zahlen und Sprachen entdecken mit Bildern und Stimme.</h1>
-      <p class="lead" data-i18n="heroLead">BabbbleBuddy hilft Kindern, spielerisch neue Wörter und Zahlen zu lernen – mit ruhigen Bildern, mehreren Sprachen, Zahlen- und Fingerdecks, iPad-Unterstützung und eigenen Aufnahmen vertrauter Stimmen.</p>
-      <div class="actions">
-        <a class="button primary" href="https://apps.apple.com/de/app/babbblebuddy/id6766206154" target="_blank" rel="noopener" data-i18n="appStore">App Store</a>
-        <a class="button secondary" href="#screenshots" data-i18n="viewApp">App ansehen</a>
-        <a class="button secondary" href="#datenschutz" data-i18n="readPrivacy">Datenschutz lesen</a>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1 data-i18n="heroTitle">Gemeinsam Sprache, Gefühle und die Welt entdecken.</h1>
+          <p class="lead" data-i18n="heroLead">BabbbleBuddy macht gemeinsame Zeit zu wertvoller Lernzeit.</p>
+          <a class="button" href="https://apps.apple.com/de/app/babbblebuddy/id6766206154" target="_blank" rel="noopener" data-i18n="storeButton">Im App Store laden</a>
+        </div>
+        <div class="hero-image"><img data-media="hero" src="assets/v23/hero-de.jpg" alt="Luke und Luna entdecken gemeinsam die Welt"></div>
       </div>
     </section>
 
-    <aside class="hero-card"><img src="assets/app-icon.png" alt="BabbbleBuddy App Icon"></aside>
+    <section class="section">
+      <div class="container story">
+        <div class="media"><img loading="lazy" data-media="shared" src="assets/v23/shared-de.jpg" alt="Gemeinsame Lernzeit mit BabbbleBuddy"></div>
+        <div class="copy">
+          <h2 data-i18n="sharedTitle">Die schönsten Lernmomente entstehen gemeinsam.</h2>
+          <p data-i18n="sharedText">Kinder lernen am besten mit den Menschen, die sie lieben. BabbbleBuddy verbindet spielerisches Entdecken mit ruhigen Bildern und Momenten, die sich gut anfühlen – für Kinder und Erwachsene.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint-mint" id="lernwelten">
+      <div class="container story reverse">
+        <div class="copy">
+          <h2 data-i18n="worldsTitle">11 Lernwelten. Unendlich viel zu entdecken.</h2>
+          <p data-i18n="worldsText">Erste Wörter, Tiere, Gefühle, Fahrzeuge, Zahlen, Farben, Formen und Dinge aus dem Alltag werden zu gemeinsamen Entdeckungen.</p>
+          <ul class="facts"><li data-i18n="worldsFact1">11 Lernwelten</li><li data-i18n="worldsFact2">Über 600 Lernkarten</li></ul>
+        </div>
+        <div class="media"><img loading="lazy" data-media="worlds" src="assets/v23/worlds-de.jpg" alt="BabbbleBuddy Lernwelten mit ersten Wörtern"></div>
+      </div>
+    </section>
+
+    <section class="section tint-lilac" id="stimmen">
+      <div class="container story">
+        <div class="media"><img loading="lazy" data-media="voices" src="assets/v23/voices-de.jpg" alt="Eigene Sprachaufnahmen mit vertrauten Stimmen"></div>
+        <div class="copy">
+          <h2 data-i18n="voicesTitle">Mit vertrauten Stimmen lernen.</h2>
+          <p data-i18n="voicesText">Nehmen Sie Wörter und Begriffe einfach selbst auf – mit der Stimme von Mama, Papa, Oma oder Opa. So wird jede Lernkarte persönlicher und motiviert zum Lernen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container story reverse">
+        <div class="copy">
+          <h2 data-i18n="emotionsTitle">Gefühle verstehen.</h2>
+          <p data-i18n="emotionsText">BabbbleBuddy hilft Kindern, Freude, Neugier, Stolz, Überraschung und viele weitere Gefühle zu erkennen, zu benennen und gemeinsam zu besprechen.</p>
+        </div>
+        <div class="media"><img loading="lazy" data-media="explorers" src="assets/v23/explorers-de.jpg" alt="Gefühle verstehen mit BabbbleBuddy"></div>
+      </div>
+    </section>
+
+    <section class="section tint-peach">
+      <div class="container story">
+        <div class="media"><img loading="lazy" data-media="personal" src="assets/v23/personal-de.jpg" alt="Eigene Lernwelten mit Familie und vertrauten Bildern"></div>
+        <div class="copy">
+          <h2 data-i18n="personalTitle">Lernwelten, die mitwachsen.</h2>
+          <p data-i18n="personalText">Erstellen Sie eigene Lernwelten mit Fotos, Bildern, Texten und Sprachaufnahmen. Für Familie, Haustiere, Lieblingsspielzeug, Kindergarten, Urlaub und den eigenen Alltag.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container story reverse">
+        <div class="copy">
+          <h2 data-i18n="languagesTitle">Sieben Sprachen.</h2>
+          <p data-i18n="languagesText">Die komplette Benutzeroberfläche und alle System-Lernwelten sind mehrsprachig. Eigene Aufnahmen machen außerdem Platz für weitere Sprachen und Dialekte.</p>
+          <div class="language-list" aria-label="Unterstützte Sprachen"><span>Deutsch</span><span>English</span><span>Español</span><span>Italiano</span><span>Türkçe</span><span>Русский</span><span>中文</span></div>
+        </div>
+        <div class="media"><img loading="lazy" data-media="worlds" src="assets/v23/worlds-de.jpg" alt="Sieben Sprachen in BabbbleBuddy"></div>
+      </div>
+    </section>
+
+    <section class="section tint-mint" id="sicherheit">
+      <div class="container story">
+        <div class="media"><img loading="lazy" data-media="private" src="assets/v23/private-de.jpg" alt="Sicher, privat und offline lernen"></div>
+        <div class="copy">
+          <h2 data-i18n="privacyTitle">Sicher. Privat. Offline.</h2>
+          <p data-i18n="privacyText">Ihre Daten gehören Ihnen. BabbbleBuddy funktioniert vollständig offline – ohne Benutzerkonten, Tracking, Datensammlung, Cloud oder Werbung.</p>
+          <div class="privacy-grid">
+            <div data-i18n="privacy1">Keine Werbung</div><div data-i18n="privacy2">Kein Tracking</div><div data-i18n="privacy3">Keine Cloud</div><div data-i18n="privacy4">Alles bleibt auf dem Gerät</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section free-section">
+      <div class="container">
+        <div class="section-heading" style="margin-inline:auto">
+          <h2 data-i18n="freeTitle">Gemeinsam entdecken. Heute starten.</h2>
+          <p class="section-intro" style="margin-inline:auto" data-i18n="freeText">Die kostenlose Version enthält alle Funktionen zum Kennenlernen – inklusive eigener Sprachaufnahmen.</p>
+        </div>
+        <div class="plans">
+          <div class="plan"><h3 data-i18n="planFreeTitle">Kostenlos ausprobieren</h3><ul><li data-i18n="planFree1">Mehrere vorinstallierte Lernwelten</li><li data-i18n="planFree2">Drei Karten pro Lernwelt</li><li data-i18n="planFree3">Eine eigene Lernwelt mit bis zu drei Karten</li><li data-i18n="planFree4">Eigene Sprachaufnahmen</li></ul></div>
+          <div class="plan"><h3 data-i18n="planFullTitle">Einmal freischalten</h3><ul><li data-i18n="planFull1">Unbegrenzt viele Lernkarten</li><li data-i18n="planFull2">Unbegrenzt viele eigene Lernwelten</li><li data-i18n="planFull3">Kein Abonnement</li><li data-i18n="planFull4">Käufe ausschließlich über Apple</li></ul></div>
+        </div>
+        <a class="button" href="https://apps.apple.com/de/app/babbblebuddy/id6766206154" target="_blank" rel="noopener" data-i18n="storeButton">Im App Store laden</a>
+      </div>
+    </section>
   </main>
-</div>
 
-<section class="section" id="funktionen"><div class="container">
-<h2 data-i18n="featuresTitle">Einfach, ruhig und kindgerecht.</h2><p class="section-intro" data-i18n="featuresIntro">BabbbleBuddy ist bewusst reduziert: große Bilder, klare Wörter und eine Bedienung, die Eltern gemeinsam mit ihrem Kind nutzen können.</p>
-<div class="grid">
-<div class="feature-card"><div class="icon">🗂️</div><h3 data-i18n="f1Title">9 eingebaute Decks</h3><p data-i18n="f1Text">Fast 300 fertige Karten für Tiere, Formen, Farben, Zahlen, Fingerlernen, Alltagsgegenstände und mehr.</p></div>
-<div class="feature-card"><div class="icon">🌍</div><h3 data-i18n="f2Title">6 Sprachen</h3><p data-i18n="f2Text">Benutzeroberfläche und fertige Karten sind in 6 Sprachen verfügbar.</p></div>
-<div class="feature-card"><div class="icon">🔢</div><h3 data-i18n="f3Title">Zahlen lernen</h3><p data-i18n="f3Text">Neue Zahlen-Decks helfen Kindern, Mengen und erste Zahlen spielerisch zu verstehen.</p></div>
-<div class="feature-card"><div class="icon">🖐️</div><h3 data-i18n="f4Title">Mit Fingern zählen</h3><p data-i18n="f4Text">Fingerkarten verbinden Sprache, Zahlen und Körpergefühl besonders anschaulich.</p></div>
-<div class="feature-card"><div class="icon">🎙️</div><h3 data-i18n="f5Title">Eigene Aufnahmen</h3><p data-i18n="f5Text">Kinder lernen besonders gern mit vertrauten Stimmen aus der Familie.</p></div>
-<div class="feature-card"><div class="icon">🧩</div><h3 data-i18n="f6Title">Eigene Inhalte</h3><p data-i18n="f6Text">Eltern können eigene Decks und Karten erstellen, zum Beispiel ein Familiendeck.</p></div>
-<div class="feature-card"><div class="icon">📱</div><h3 data-i18n="f7Title">Wunderschön auf dem iPad</h3><p data-i18n="f7Text">Auf dem iPad wirkt BabbbleBuddy wie ein großes, ruhiges Bilderbuch: viel Platz für Bilder, klare Wörter und kleine Kinderhände.</p></div>
-<div class="feature-card"><div class="icon">📴</div><h3 data-i18n="f8Title">Offline nutzbar</h3><p data-i18n="f8Text">Nach der Installation benötigt BabbbleBuddy keinen Internetzugang für das Lernen.</p></div>
-<div class="feature-card"><div class="icon">🔒</div><h3 data-i18n="f9Title">Privat by Design</h3><p data-i18n="f9Text">Keine Benutzerkonten, kein Tracking, keine Analyse und keine Datensammlung.</p></div>
-</div></div></section>
+  <footer class="footer"><div class="container footer-inner"><div>© BabbbleBuddy · Marcus Veit</div><div class="footer-links"><a href="privacy.html" data-i18n="footerPrivacy">Datenschutz</a><a href="support.html" data-i18n="footerSupport">Support</a><a href="impressum.html" data-i18n="footerImprint">Impressum</a><a href="mailto:support@babbblebuddy.com">support@babbblebuddy.com</a></div></div></footer>
 
-<section class="section" id="screenshots"><div class="container"><h2 data-i18n="shotsTitle">So sieht BabbbleBuddy aus.</h2><p class="section-intro" data-i18n="shotsIntro">Große Bilder, klare Begriffe, Zahlen- und Fingerdecks, eigene Aufnahmen und mehrere Sprachen – auf iPhone und iPad ohne Ablenkung.</p><div class="screenshot-grid">
-<div class="screenshot"><img src="assets/screenshot-1.jpg" alt="BabbbleBuddy Screenshot Wörter entdecken"></div><div class="screenshot"><img src="assets/screenshot-2.jpg" alt="BabbbleBuddy Screenshot Karten lernen"></div><div class="screenshot"><img src="assets/screenshot-3.jpg" alt="BabbbleBuddy Screenshot eigene Aufnahmen"></div><div class="screenshot"><img src="assets/screenshot-4.jpg" alt="BabbbleBuddy Screenshot mehrere Sprachen"></div><div class="screenshot"><img src="assets/screenshot-5.jpg" alt="BabbbleBuddy Screenshot sicher und privat"></div><div class="screenshot"><img src="assets/screenshot-8-zahlen-lernen.jpg" alt="BabbbleBuddy Screenshot Zahlen lernen"></div><div class="screenshot"><img src="assets/screenshot-7-finger-count.jpg" alt="BabbbleBuddy Screenshot mit Fingern zählen"></div><div class="screenshot"><img src="assets/screenshot-6.jpg" alt="BabbbleBuddy Screenshot kostenlos starten"></div>
-</div></div></section>
-
-<section class="section trust" id="datenschutz"><div class="container"><h2 data-i18n="privacyTitle">Alles bleibt auf deinem Gerät.</h2><p class="section-intro" data-i18n="privacyIntro">Datenschutz ist bei BabbbleBuddy kein Zusatz, sondern ein Grundprinzip. Gerade bei einer App für Kinder ist Vertrauen wichtiger als jedes zusätzliche Feature.</p><div class="trust-grid">
-<div class="trust-card"><div class="icon">🖼️</div><h3 data-i18n="t1Title">Keine Bilder ins Internet</h3><p data-i18n="t1Text">Eigene Fotos, Lernkarten und Inhalte werden nicht hochgeladen und nicht an Dritte weitergegeben.</p></div>
-<div class="trust-card"><div class="icon">🎧</div><h3 data-i18n="t2Title">Keine Audioaufnahmen an Dritte</h3><p data-i18n="t2Text">Eigene Sprachaufnahmen bleiben lokal auf dem Gerät und werden nicht ausgewertet.</p></div>
-<div class="trust-card"><div class="icon">👤</div><h3 data-i18n="t3Title">Keine Nutzerprofile</h3><p data-i18n="t3Text">BabbbleBuddy erstellt keine Profile und verwendet keine Analyse- oder Trackingdienste.</p></div>
-<div class="trust-card"><div class="icon">🛡️</div><h3 data-i18n="t4Title">Auch zukünftig nicht geplant</h3><p data-i18n="t4Text">Eine Übertragung von Bildern, Aufnahmen, Lerninhalten oder Nutzungsprofilen ist auch in Zukunft nicht geplant.</p></div>
-</div><div class="father-note"><strong data-i18n="noteTitle">Eine persönliche Entscheidung.</strong><p data-i18n="noteText">BabbbleBuddy wurde aus der Perspektive eines Vaters entwickelt. Deshalb ist mir besonders wichtig, dass Kinder mit der App lernen können, ohne dass private Bilder, Stimmen oder Lerninhalte ins Internet geladen oder an Dritte weitergegeben werden.</p></div></div></section>
-
-<section class="section"><div class="container"><h2 data-i18n="priceTitle">Kostenlos starten. Jederzeit erweitern.</h2><p class="section-intro" data-i18n="priceIntro">Die kostenlose Version eignet sich zum Ausprobieren. Die Vollversion wird einmalig per In‑App‑Kauf freigeschaltet.</p><div class="compare"><div class="plan free"><span class="plan-label" data-i18n="free">Kostenlos</span><ul><li data-i18n="free1">9 eingebaute Decks</li><li data-i18n="free2">fast 300 fertige Karten</li><li data-i18n="free3">3 Karten pro Deck</li><li data-i18n="free4">1 eigenes Deck</li><li data-i18n="free5">6 Sprachen + eigene Aufnahmen</li></ul></div><div class="plan full"><span class="plan-label" data-i18n="full">Vollversion</span><ul><li data-i18n="full1">9 eingebaute Decks</li><li data-i18n="full2">unbegrenzte Karten</li><li data-i18n="full3">beliebig viele eigene Decks</li><li data-i18n="full4">alle Inhalte ohne Begrenzung</li><li data-i18n="full5">einmalig freischalten, kein Abo</li></ul></div></div><div class="actions"><a class="button primary" href="https://apps.apple.com/de/app/babbblebuddy/id6766206154" target="_blank" rel="noopener" data-i18n="appStore">App Store</a></div></div></section>
-
-<footer class="footer"><div class="container footer-inner"><div data-i18n="footerName">© BabbbleBuddy · Marcus Veit</div><div class="footer-links"><a href="privacy.html" data-i18n="navPrivacy">Datenschutz</a><a href="support.html" data-i18n="navSupport">Support</a><a href="impressum.html" data-i18n="navImprint">Impressum</a><a href="mailto:support@babbblebuddy.com">support@babbblebuddy.com</a></div></div></footer>
-
-<script>
-const translations = {
-  de: {
-    title: "BabbbleBuddy – Sprechendes Bilderbuch",
-    description: "BabbbleBuddy ist ein sprechendes Bilderbuch für Kinder – mit Wörtern, Zahlen, Bildern, Sprache, eigenen Aufnahmen, iPhone- und iPad-Unterstützung und starkem Datenschutz.",
-    navFeatures: "Funktionen", navScreenshots: "Screenshots", navPrivacy: "Datenschutz", navSupport: "Support", navImprint: "Impressum", navHome: "Start", appStore: "App Store",
-    badge: "Sprechendes Bilderbuch · Lernen mit Freude",
-    heroTitle: "Die Welt der Wörter, Zahlen und Sprachen entdecken mit Bildern und Stimme.",
-    heroLead: "BabbbleBuddy hilft Kindern, spielerisch neue Wörter und Zahlen zu lernen – mit ruhigen Bildern, mehreren Sprachen, Zahlen- und Fingerdecks, iPad-Unterstützung und eigenen Aufnahmen vertrauter Stimmen.",
-    viewApp: "App ansehen", readPrivacy: "Datenschutz lesen",
-    featuresTitle: "Einfach, ruhig und kindgerecht.",
-    featuresIntro: "BabbbleBuddy ist bewusst reduziert: große Bilder, klare Wörter und eine Bedienung, die Eltern gemeinsam mit ihrem Kind nutzen können.",
-    f1Title: "9 eingebaute Decks", f1Text: "Fast 300 fertige Karten für Tiere, Formen, Farben, Zahlen, Fingerlernen, Alltagsgegenstände und mehr.",
-    f2Title: "6 Sprachen", f2Text: "Benutzeroberfläche und fertige Karten sind in 6 Sprachen verfügbar.",
-    f3Title: "Zahlen lernen", f3Text: "Neue Zahlen-Decks helfen Kindern, Mengen und erste Zahlen spielerisch zu verstehen.",
-    f4Title: "Mit Fingern zählen", f4Text: "Fingerkarten verbinden Sprache, Zahlen und Körpergefühl besonders anschaulich.",
-    f5Title: "Eigene Aufnahmen", f5Text: "Kinder lernen besonders gern mit vertrauten Stimmen aus der Familie.",
-    f6Title: "Eigene Inhalte", f6Text: "Eltern können eigene Decks und Karten erstellen, zum Beispiel ein Familiendeck.",
-    f7Title: "Wunderschön auf dem iPad", f7Text: "Auf dem iPad wirkt BabbbleBuddy wie ein großes, ruhiges Bilderbuch: viel Platz für Bilder, klare Wörter und kleine Kinderhände.",
-    f8Title: "Offline nutzbar", f8Text: "Nach der Installation benötigt BabbbleBuddy keinen Internetzugang für das Lernen.",
-    f9Title: "Privat by Design", f9Text: "Keine Benutzerkonten, kein Tracking, keine Analyse und keine Datensammlung.",
-    shotsTitle: "So sieht BabbbleBuddy aus.",
-    shotsIntro: "Große Bilder, klare Begriffe, Zahlen- und Fingerdecks, eigene Aufnahmen und mehrere Sprachen – auf iPhone und iPad ohne Ablenkung.",
-    privacyTitle: "Alles bleibt auf deinem Gerät.",
-    privacyIntro: "Datenschutz ist bei BabbbleBuddy kein Zusatz, sondern ein Grundprinzip. Gerade bei einer App für Kinder ist Vertrauen wichtiger als jedes zusätzliche Feature.",
-    t1Title: "Keine Bilder ins Internet", t1Text: "Eigene Fotos, Lernkarten und Inhalte werden nicht hochgeladen und nicht an Dritte weitergegeben.",
-    t2Title: "Keine Audioaufnahmen an Dritte", t2Text: "Eigene Sprachaufnahmen bleiben lokal auf dem Gerät und werden nicht ausgewertet.",
-    t3Title: "Keine Nutzerprofile", t3Text: "BabbbleBuddy erstellt keine Profile und verwendet keine Analyse- oder Trackingdienste.",
-    t4Title: "Auch zukünftig nicht geplant", t4Text: "Eine Übertragung von Bildern, Aufnahmen, Lerninhalten oder Nutzungsprofilen ist auch in Zukunft nicht geplant.",
-    noteTitle: "Eine persönliche Entscheidung.",
-    noteText: "BabbbleBuddy wurde aus der Perspektive eines Vaters entwickelt. Deshalb ist mir besonders wichtig, dass Kinder mit der App lernen können, ohne dass private Bilder, Stimmen oder Lerninhalte ins Internet geladen oder an Dritte weitergegeben werden.",
-    priceTitle: "Kostenlos starten. Jederzeit erweitern.",
-    priceIntro: "Die kostenlose Version eignet sich zum Ausprobieren. Die Vollversion wird einmalig per In‑App‑Kauf freigeschaltet.",
-    free: "Kostenlos", full: "Vollversion",
-    free1: "9 eingebaute Decks", free2: "fast 300 fertige Karten", free3: "3 Karten pro Deck", free4: "1 eigenes Deck", free5: "6 Sprachen + eigene Aufnahmen",
-    full1: "9 eingebaute Decks", full2: "unbegrenzte Karten", full3: "beliebig viele eigene Decks", full4: "alle Inhalte ohne Begrenzung", full5: "einmalig freischalten, kein Abo",
-    footerName: "© BabbbleBuddy · Marcus Veit",
-    supportTitle: "Support", supportIntro: "Bei Fragen, Problemen oder Rückmeldungen zu BabbbleBuddy helfen wir gerne weiter.", contact: "Kontakt", supportTime: "Wir bemühen uns, Anfragen innerhalb von 48 Stunden zu beantworten.",
-    privacyPageTitle: "Datenschutzerklärung", privacyPageIntro: "BabbbleBuddy wurde so entwickelt, dass die App ohne Benutzerkonto, ohne Tracking und ohne Analysefunktionen verwendet werden kann.",
-    p1Title: "Keine Weitergabe an Dritte", p1Text: "BabbbleBuddy gibt keine Bilder, Audioaufnahmen, Lerninhalte, Nutzerprofile oder Nutzungsdaten an Dritte weiter. Eigene Inhalte werden nicht ins Internet hochgeladen und nicht auf externen Servern gespeichert.",
-    p2Title: "Lokale Speicherung", p2Text: "Von Nutzern erstellte Inhalte, Einstellungen und eigene Aufnahmen bleiben lokal auf dem Gerät. Sie bleiben dort, bis sie in der App gelöscht, ersetzt oder die App vom Gerät entfernt wird.",
-    p3Title: "Keine Analyse und kein Tracking", p3Text: "BabbbleBuddy verwendet keine Trackingdienste, keine Werbenetzwerke, keine Analysewerkzeuge und keine Drittanbieter-Tools zur Auswertung des Nutzungsverhaltens.",
-    p4Title: "Offline-Nutzung", p4Text: "Nach der Installation kann BabbbleBuddy vollständig offline verwendet werden. Für In‑App‑Käufe gelten die Bedingungen und Datenschutzinformationen von Apple.",
-    p5Title: "Auch zukünftig nicht geplant", p5Text: "Eine Übertragung von privaten Bildern, eigenen Sprachaufnahmen, Lerninhalten oder Nutzungsprofilen an externe Server oder Dritte ist auch zukünftig nicht geplant.",
-    pContact: "Bei Fragen zum Datenschutz:",
-    imprintTitle: "Impressum", imprintResponsible: "Verantwortlich für den Inhalt dieser Website: Marcus Veit."
-  },
-  en: {
-    title: "BabbbleBuddy – Talking Picture Book",
-    description: "BabbbleBuddy is a talking picture book for children – with words, numbers, pictures, speech, personal recordings, iPhone and iPad support, and strong privacy.",
-    navFeatures: "Features", navScreenshots: "Screenshots", navPrivacy: "Privacy", navSupport: "Support", navImprint: "Legal notice", navHome: "Home", appStore: "App Store",
-    badge: "Talking picture book · Joyful learning",
-    heroTitle: "Discover words, numbers and languages with pictures and voices.",
-    heroLead: "BabbbleBuddy helps children learn new words and numbers in a playful way – with calm pictures, multiple languages, number and finger-counting decks, iPad support and personal recordings of familiar voices.",
-    viewApp: "View the app", readPrivacy: "Read privacy information",
-    featuresTitle: "Simple, calm and child-friendly.",
-    featuresIntro: "BabbbleBuddy is intentionally reduced: large pictures, clear words and an interface parents can use together with their child.",
-    f1Title: "9 built-in decks", f1Text: "Almost 300 ready-made cards for animals, shapes, colors, numbers, finger counting, everyday objects and more.",
-    f2Title: "6 languages", f2Text: "The user interface and ready-made cards are available in 6 languages.",
-    f3Title: "Learn numbers", f3Text: "Number decks help children understand quantities and first numbers in a playful way.",
-    f4Title: "Count with fingers", f4Text: "Finger cards connect language, numbers and body awareness in a very visual way.",
-    f5Title: "Personal recordings", f5Text: "Children especially enjoy learning with familiar family voices.",
-    f6Title: "Personal content", f6Text: "Parents can create their own decks and cards, for example a family deck.",
-    f7Title: "Beautiful on iPad", f7Text: "On iPad, BabbbleBuddy feels like a large, calm picture book: lots of space for images, clear words and small children's hands.",
-    f8Title: "Works offline", f8Text: "After installation, BabbbleBuddy does not need internet access for learning.",
-    f9Title: "Private by design", f9Text: "No user accounts, no tracking, no analytics and no data collection.",
-    shotsTitle: "This is what BabbbleBuddy looks like.",
-    shotsIntro: "Large pictures, clear words, number and finger-counting decks, personal recordings and multiple languages – on iPhone and iPad without distractions.",
-    privacyTitle: "Everything stays on your device.",
-    privacyIntro: "Privacy is not an add-on in BabbbleBuddy; it is a core principle. Especially in an app for children, trust matters more than any extra feature.",
-    t1Title: "No pictures sent online", t1Text: "Personal photos, learning cards and content are not uploaded and are not shared with third parties.",
-    t2Title: "No audio recordings shared", t2Text: "Personal voice recordings stay local on the device and are not analyzed.",
-    t3Title: "No user profiles", t3Text: "BabbbleBuddy does not create profiles and does not use analytics or tracking services.",
-    t4Title: "No plans to change this", t4Text: "Uploading images, recordings, learning content or usage profiles is not planned for the future either.",
-    noteTitle: "A personal decision.",
-    noteText: "BabbbleBuddy was developed from a father's perspective. That is why it is especially important to me that children can learn with the app without private pictures, voices or learning content being uploaded to the internet or shared with third parties.",
-    priceTitle: "Start for free. Upgrade anytime.",
-    priceIntro: "The free version is great for trying the app. The full version is unlocked once through an in-app purchase.",
-    free: "Free", full: "Full version",
-    free1: "9 built-in decks", free2: "almost 300 ready-made cards", free3: "3 cards per deck", free4: "1 personal deck", free5: "6 languages + personal recordings",
-    full1: "9 built-in decks", full2: "unlimited cards", full3: "as many personal decks as you like", full4: "all content without limits", full5: "one-time unlock, no subscription",
-    footerName: "© BabbbleBuddy · Marcus Veit",
-    supportTitle: "Support", supportIntro: "If you have questions, problems or feedback about BabbbleBuddy, we are happy to help.", contact: "Contact", supportTime: "We try to answer requests within 48 hours.",
-    privacyPageTitle: "Privacy Policy", privacyPageIntro: "BabbbleBuddy was designed so the app can be used without a user account, without tracking and without analytics features.",
-    p1Title: "No sharing with third parties", p1Text: "BabbbleBuddy does not share images, audio recordings, learning content, user profiles or usage data with third parties. Personal content is not uploaded to the internet and is not stored on external servers.",
-    p2Title: "Local storage", p2Text: "User-created content, settings and personal recordings remain local on the device. They stay there until they are deleted or replaced in the app, or until the app is removed from the device.",
-    p3Title: "No analytics and no tracking", p3Text: "BabbbleBuddy does not use tracking services, advertising networks, analytics tools or third-party tools to evaluate usage behavior.",
-    p4Title: "Offline use", p4Text: "After installation, BabbbleBuddy can be used fully offline. For in-app purchases, Apple's terms and privacy information apply.",
-    p5Title: "No plans to change this", p5Text: "Transferring private images, personal voice recordings, learning content or usage profiles to external servers or third parties is not planned for the future either.",
-    pContact: "For privacy questions:",
-    imprintTitle: "Legal notice", imprintResponsible: "Responsible for the content of this website: Marcus Veit."
-  }
-};
-
-function setLanguage(lang) {
-  const selected = translations[lang] ? lang : 'de';
-  const t = translations[selected];
-  document.documentElement.lang = selected === 'en' ? 'en' : 'de';
-  document.title = t.title || document.title;
-  const meta = document.querySelector('meta[name="description"]');
-  if (meta && t.description) meta.setAttribute('content', t.description);
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.textContent = t[key];
-  });
-  document.querySelectorAll('.lang-button').forEach(button => {
-    button.classList.toggle('active', button.dataset.lang === selected);
-    button.setAttribute('aria-pressed', button.dataset.lang === selected ? 'true' : 'false');
-  });
-  localStorage.setItem('babbblebuddy-language', selected);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('babbblebuddy-language');
-  const browser = (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'de';
-  setLanguage(saved || browser);
-  document.querySelectorAll('.lang-button').forEach(button => {
-    button.addEventListener('click', () => setLanguage(button.dataset.lang));
-  });
-});
-</script>
-
+  <script>
+    const strings = {
+      de: {
+        title: 'BabbbleBuddy – Gemeinsam entdecken', description: 'BabbbleBuddy macht gemeinsame Zeit zu wertvoller Lernzeit – sicher, privat und komplett offline.',
+        navVoices: 'Stimmen', navWorlds: 'Lernwelten', navSafety: 'Sicherheit', navStore: 'Im App Store', storeButton: 'Im App Store laden',
+        heroTitle: 'Gemeinsam Sprache, Gefühle und die Welt entdecken.', heroLead: 'BabbbleBuddy macht gemeinsame Zeit zu wertvoller Lernzeit.',
+        sharedTitle: 'Die schönsten Lernmomente entstehen gemeinsam.', sharedText: 'Kinder lernen am besten mit den Menschen, die sie lieben. BabbbleBuddy verbindet spielerisches Entdecken mit ruhigen Bildern und Momenten, die sich gut anfühlen – für Kinder und Erwachsene.',
+        worldsTitle: '11 Lernwelten. Unendlich viel zu entdecken.', worldsText: 'Erste Wörter, Tiere, Gefühle, Fahrzeuge, Zahlen, Farben, Formen und Dinge aus dem Alltag werden zu gemeinsamen Entdeckungen.', worldsFact1: '11 Lernwelten', worldsFact2: 'Über 600 Lernkarten',
+        voicesTitle: 'Mit vertrauten Stimmen lernen.', voicesText: 'Nehmen Sie Wörter und Begriffe einfach selbst auf – mit der Stimme von Mama, Papa, Oma oder Opa. So wird jede Lernkarte persönlicher und motiviert zum Lernen.',
+        emotionsTitle: 'Gefühle verstehen.', emotionsText: 'BabbbleBuddy hilft Kindern, Freude, Neugier, Stolz, Überraschung und viele weitere Gefühle zu erkennen, zu benennen und gemeinsam zu besprechen.',
+        personalTitle: 'Lernwelten, die mitwachsen.', personalText: 'Erstellen Sie eigene Lernwelten mit Fotos, Bildern, Texten und Sprachaufnahmen. Für Familie, Haustiere, Lieblingsspielzeug, Kindergarten, Urlaub und den eigenen Alltag.',
+        languagesTitle: 'Sieben Sprachen.', languagesText: 'Die komplette Benutzeroberfläche und alle System-Lernwelten sind mehrsprachig. Eigene Aufnahmen machen außerdem Platz für weitere Sprachen und Dialekte.',
+        privacyTitle: 'Sicher. Privat. Offline.', privacyText: 'Ihre Daten gehören Ihnen. BabbbleBuddy funktioniert vollständig offline – ohne Benutzerkonten, Tracking, Datensammlung, Cloud oder Werbung.', privacy1: 'Keine Werbung', privacy2: 'Kein Tracking', privacy3: 'Keine Cloud', privacy4: 'Alles bleibt auf dem Gerät',
+        freeTitle: 'Gemeinsam entdecken. Heute starten.', freeText: 'Die kostenlose Version enthält alle Funktionen zum Kennenlernen – inklusive eigener Sprachaufnahmen.', planFreeTitle: 'Kostenlos ausprobieren', planFree1: 'Mehrere vorinstallierte Lernwelten', planFree2: 'Drei Karten pro Lernwelt', planFree3: 'Eine eigene Lernwelt mit bis zu drei Karten', planFree4: 'Eigene Sprachaufnahmen', planFullTitle: 'Einmal freischalten', planFull1: 'Unbegrenzt viele Lernkarten', planFull2: 'Unbegrenzt viele eigene Lernwelten', planFull3: 'Kein Abonnement', planFull4: 'Käufe ausschließlich über Apple', footerPrivacy: 'Datenschutz', footerSupport: 'Support', footerImprint: 'Impressum',
+        altHero: 'Luke und Luna entdecken gemeinsam die Welt', altShared: 'Gemeinsame Lernzeit mit BabbbleBuddy', altWorlds: 'BabbbleBuddy Lernwelten mit ersten Wörtern', altVoices: 'Eigene Sprachaufnahmen mit vertrauten Stimmen', altExplorers: 'Gefühle verstehen mit BabbbleBuddy', altPersonal: 'Eigene Lernwelten mit Familie und vertrauten Bildern', altPrivate: 'Sicher, privat und offline lernen'
+      },
+      en: {
+        title: 'BabbbleBuddy – Discover Together', description: 'BabbbleBuddy turns time together into valuable learning time – safe, private and completely offline.',
+        navVoices: 'Voices', navWorlds: 'Learning worlds', navSafety: 'Safety', navStore: 'On the App Store', storeButton: 'Download on the App Store',
+        heroTitle: 'Discover language, emotions and the world together.', heroLead: 'BabbbleBuddy turns time together into valuable learning time.',
+        sharedTitle: 'The best learning moments happen together.', sharedText: 'Children learn best with the people they love. BabbbleBuddy combines playful discovery with calm illustrations and moments that feel good for children and adults.',
+        worldsTitle: '11 learning worlds. Endless discoveries.', worldsText: 'First words, animals, emotions, vehicles, numbers, colors, shapes and everyday things become shared discoveries.', worldsFact1: '11 learning worlds', worldsFact2: 'Over 600 learning cards',
+        voicesTitle: 'Learn with familiar voices.', voicesText: 'Record words and phrases with the voices of Mom, Dad, Grandma or Grandpa. Every learning card becomes more personal, engaging and motivating.',
+        emotionsTitle: 'Understand emotions.', emotionsText: 'BabbbleBuddy helps children recognize, name and talk about happiness, curiosity, pride, surprise and many more feelings.',
+        personalTitle: 'Learning worlds that grow with your child.', personalText: 'Create personal learning worlds with photos, pictures, text and voice recordings. Perfect for family, pets, favorite toys, kindergarten, holidays and everyday life.',
+        languagesTitle: 'Seven languages.', languagesText: 'The complete interface and all system learning worlds are multilingual. Personal recordings also make room for additional languages and dialects.',
+        privacyTitle: 'Safe. Private. Offline.', privacyText: 'Your data belongs to you. BabbbleBuddy works completely offline – with no user accounts, tracking, data collection, cloud requirement or advertising.', privacy1: 'No ads', privacy2: 'No tracking', privacy3: 'No cloud', privacy4: 'Everything stays on your device',
+        freeTitle: 'Discover together. Start today.', freeText: 'The free version includes every feature you need to get to know BabbbleBuddy – including personal voice recordings.', planFreeTitle: 'Try it for free', planFree1: 'Several pre-installed learning worlds', planFree2: 'Three cards in each learning world', planFree3: 'One personal learning world with up to three cards', planFree4: 'Personal voice recordings', planFullTitle: 'Unlock once', planFull1: 'Unlimited learning cards', planFull2: 'Unlimited personal learning worlds', planFull3: 'No subscription', planFull4: 'Purchases exclusively through Apple', footerPrivacy: 'Privacy', footerSupport: 'Support', footerImprint: 'Legal notice',
+        altHero: 'Luke and Luna discovering the world together', altShared: 'Shared learning time with BabbbleBuddy', altWorlds: 'BabbbleBuddy learning worlds with first words', altVoices: 'Personal voice recordings with familiar voices', altExplorers: 'Understanding emotions with BabbbleBuddy', altPersonal: 'Personal learning worlds with family and familiar images', altPrivate: 'Safe, private and offline learning'
+      }
+    };
+    const media = { hero: 'hero', shared: 'shared', voices: 'voices', worlds: 'worlds', explorers: 'explorers', personal: 'personal', private: 'private' };
+    const altKeys = { hero: 'altHero', shared: 'altShared', voices: 'altVoices', worlds: 'altWorlds', explorers: 'altExplorers', personal: 'altPersonal', private: 'altPrivate' };
+    function setLanguage(language) {
+      const lang = strings[language] ? language : 'de';
+      const text = strings[lang];
+      document.documentElement.lang = lang;
+      document.title = text.title;
+      document.querySelector('meta[name="description"]').setAttribute('content', text.description);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', text.title);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', text.description);
+      document.querySelector('meta[property="og:image"]').setAttribute('content', `assets/v23/hero-${lang}.jpg`);
+      document.querySelectorAll('[data-i18n]').forEach((element) => { const key = element.dataset.i18n; if (text[key]) element.textContent = text[key]; });
+      document.querySelectorAll('[data-media]').forEach((element) => { const key = element.dataset.media; element.src = `assets/v23/${media[key]}-${lang}.jpg`; element.alt = text[altKeys[key]]; });
+      document.querySelectorAll('.lang-button').forEach((button) => { const active = button.dataset.lang === lang; button.classList.toggle('active', active); button.setAttribute('aria-pressed', active); });
+      localStorage.setItem('babbblebuddy-language', lang);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('babbblebuddy-language');
+      const browserLanguage = (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'de';
+      setLanguage(saved || browserLanguage);
+      document.querySelectorAll('.lang-button').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+    });
+  </script>
 </body>
 </html>
