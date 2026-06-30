@@ -162,7 +162,7 @@ h1 {
   max-width: 780px;
   margin-bottom: 1.4rem;
   color: var(--text);
-  font-size: clamp(2.65rem, 8vw, 6.8rem);
+  font-size: clamp(2.35rem, 7.2vw, 6.8rem);
   font-weight: 760;
   line-height: 0.98;
   letter-spacing: 0;
@@ -381,7 +381,9 @@ h3 {
 }
 
 .legal-content h1 {
-  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  hyphens: auto;
+  overflow-wrap: normal;
 }
 
 .legal-content h2 {
@@ -445,12 +447,7 @@ h3 {
 
 @media (max-width: 480px) {
   .site-header {
-    grid-template-columns: 1fr;
-    justify-items: start;
-  }
-
-  .language-switch {
-    order: 3;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 }
 
@@ -458,19 +455,18 @@ h3 {
   .site-header,
   .section-inner,
   .site-footer {
-    width: min(calc(100% - 2rem), 358px);
+    width: calc(100% - 2rem);
     margin-left: 1rem;
-    margin-right: auto;
+    margin-right: 1rem;
   }
 
   .site-header {
-    grid-template-columns: 1fr;
-    justify-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .hero {
     min-height: auto;
-    padding-top: 4rem;
+    padding-top: 3rem;
   }
 
   .hero-subtitle {
@@ -478,7 +474,7 @@ h3 {
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 1180px) {
   .principles-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
