@@ -22,4 +22,4 @@ Open `index.html` directly in a browser. No build step, framework, external asse
 
 - The DE/EN switch is implemented with minimal inline vanilla JavaScript on the static page.
 - `impressum.html` and `datenschutz.html` intentionally contain clearly marked placeholders and must be reviewed before publication.
-- The BabbbleBuddy project link currently points to `https://babbblebuddy.de`.
+- The BabbbleBuddy project link currently points to `https://babbblebuddy.com`.
